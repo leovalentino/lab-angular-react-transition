@@ -16,7 +16,7 @@ const Shell = () => {
       <Navbar />
       <div className="flex pt-16">
         <Sidebar />
-        <main className="flex-1 overflow-y-auto min-h-[calc(100vh-4rem)]">
+        <main className="flex-1 overflow-y-auto min-h-[calc(100vh-4rem)] md:ml-0">
           <Outlet />
         </main>
       </div>
