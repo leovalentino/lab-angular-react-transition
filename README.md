@@ -34,6 +34,50 @@ npm run format
 
 The development server will start at `http://localhost:5173`
 
+## 🔧 Troubleshooting
+
+### Can't access http://localhost:5173/
+
+1. **Check if the server is running:**
+   ```bash
+   # Make sure you're in the project directory
+   npm run dev
+   ```
+
+2. **Port may be in use:**
+   ```bash
+   # On Linux/macOS
+   lsof -i :5173
+   # On Windows
+   netstat -ano | findstr :5173
+   
+   # Kill the process if needed, or change the port in vite.config.ts
+   ```
+
+3. **Clear npm cache and reinstall:**
+   ```bash
+   rm -rf node_modules package-lock.json
+   npm cache clean --force
+   npm install
+   ```
+
+4. **Check for TypeScript errors:**
+   ```bash
+   npm run type-check
+   ```
+
+5. **Create environment file:**
+   ```bash
+   cp .env.example .env
+   ```
+
+6. **If using a different port, update vite.config.ts:**
+   ```javascript
+   server: {
+     port: 3000, // Change to desired port
+   }
+   ```
+
 ## 📁 Project Structure (Clean Architecture - Bottom-Up)
 
 ```

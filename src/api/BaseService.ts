@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { useAuthStore } from '../store/useAuthStore';
 
 // Renault API base URL - should be moved to environment variables in production
@@ -18,9 +18,10 @@ class BaseService {
 
     // Request interceptor to add auth token
     this.instance.interceptors.request.use(
-      (config) => {
+      (config: InternalAxiosRequestConfig) => {
+        // Get fresh token on each request
         const token = useAuthStore.getState().token;
-        if (token) {
+        if (token && config.headers) {
           config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
@@ -37,6 +38,10 @@ class BaseService {
         // Handle 401 Unauthorized
         if (error.response?.status === 401) {
           useAuthStore.getState().logout();
+          // Optionally redirect to login page
+          if (typeof window !== 'undefined') {
+            window.location.href = '/login';
+          }
         }
         return Promise.reject(error);
       }
