@@ -78,6 +78,12 @@ The development server will start at `http://localhost:5176`
    }
    ```
 
+7. **Missing dependencies error:**
+   ```bash
+   # If you see errors about missing packages, install them:
+   npm install @tanstack/react-query-devtools
+   ```
+
 ## 📁 Project Structure (Clean Architecture - Bottom-Up)
 
 ```
@@ -110,6 +116,7 @@ src/
 | **React Router 6** | Client-side Routing | Angular Router |
 | **Zustand** | State Management | NgRx/Service with BehaviorSubject |
 | **TanStack React Query** | Server State Management | RxJS + HttpClient caching |
+| **TanStack React Query DevTools** | Development Tools for debugging | Angular DevTools |
 | **Axios** | HTTP Client | Angular HttpClient |
 | **Tailwind CSS** | Utility-first CSS | Angular Material / SCSS |
 | **Lucide React** | Icon Library | Angular Material Icons |
