@@ -32,7 +32,7 @@ npm run type-check
 npm run format
 ```
 
-The development server will start at `http://localhost:5173`
+The development server will start at `http://localhost:5176`
 
 ## 🔧 Troubleshooting
 
@@ -47,9 +47,9 @@ The development server will start at `http://localhost:5173`
 2. **Port may be in use:**
    ```bash
    # On Linux/macOS
-   lsof -i :5173
+   lsof -i :5176
    # On Windows
-   netstat -ano | findstr :5173
+   netstat -ano | findstr :5176
    
    # Kill the process if needed, or change the port in vite.config.ts
    ```
